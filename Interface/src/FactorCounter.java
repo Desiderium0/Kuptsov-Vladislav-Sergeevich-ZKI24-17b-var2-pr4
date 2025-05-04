@@ -1,7 +1,8 @@
-class PrimeFactorCounter implements NumberCharacteristic {
-  public int count(int number) {
-    if (number == 0 || number == 1 || number == -1) return 0;
-    int n = Math.abs(number);
+class FactorCounter implements NumberCharacteristic {
+  // Лямбда-выражение для count
+  private NumberCharacteristic counter = (num) -> {
+    if (num == 0 || num == 1 || num == -1) return 0;
+    int n = Math.abs(num);
     int count = 0;
 
     if (n % 2 == 0) {
@@ -18,5 +19,9 @@ class PrimeFactorCounter implements NumberCharacteristic {
 
     if (n > 1) count++;
     return count;
+  };
+
+  public int count(int number) {
+    return counter.count(number); // Вызываем лямбда-выражение через метод
   }
 }

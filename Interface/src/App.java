@@ -27,6 +27,7 @@ class App {
 
     if (!isValid) {
       System.out.println("Ошибка: введено не число");
+      scanner.close();
       return;
     }
 
@@ -51,7 +52,7 @@ class App {
 
     // Создание экземпялорв классов наследующие интерфейс
     NumberCharacteristic digitCounter = new DigitCounter();
-    NumberCharacteristic primeFactorCounter = new PrimeFactorCounter();
+    NumberCharacteristic primeFactorCounter = new FactorCounter();
 
     System.out.println("Количество цифр в числе: " + digitCounter.count(number));
     System.out.println("Количество уникальных простых множителей: " + primeFactorCounter.count(number));

@@ -1,12 +1,16 @@
 class DigitCounter implements NumberCharacteristic {
-  public int count(int number) {
-    int num = Math.abs(number);
-    if (num == 0) return 1;
+  private NumberCharacteristic counter = (num) -> {  // Лямбда-выражение для count
+    int n = Math.abs(num);
+    if (n == 0) return 1;
     int count = 0;
-    while (num > 0) {
-      num /= 10;
+    while (n > 0) {
+      n /= 10;
       count++;
     }
     return count;
+  };
+
+  public int count(int number) {
+    return counter.count(number); // Вызываем лямбда-выражение через метод
   }
 }
